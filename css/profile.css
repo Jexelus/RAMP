@@ -1,0 +1,52 @@
+body 
+{
+    margin:0;
+    padding:0
+}
+.upper 
+{
+    padding-left: 45%;
+    padding-top: 10px;
+    text-align: center;
+    display:inline-flex;
+}
+.sign
+{
+    padding-top: 10px;
+    padding-left: 65%;
+}
+.porof 
+{
+    padding-top: 10px;
+    padding-left: 10%;
+}
+#rectmain
+{
+    width: 870px;
+    height: 600px;
+    
+    background: black;
+    filter: blur(6px);
+    border-radius: 30px;
+    opacity: 65%;
+    margin-top: 2%;
+    margin-left: 10%;
+}
+#rectprof 
+{
+    width: 270px;
+    height: 600px;
+    left: 1275px;
+    top: 120px;
+    margin-left: 30px;
+    margin-top: 2%;
+
+    background-color: black;
+    border-radius: 30px;
+    opacity: 65%;
+    filter: blur(6px);
+}
+.content 
+{
+    display: flex;
+}

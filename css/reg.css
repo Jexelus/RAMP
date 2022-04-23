@@ -1,0 +1,56 @@
+body 
+{
+    margin:0;
+    padding:0
+}
+.upper 
+{
+    padding-left: 45%;
+    padding-top: 10px;
+    text-align: center;
+    display:inline-flex;
+}
+.porof 
+{
+    padding-top: 10px;
+    padding-left: 136%;
+}
+#rect
+{
+width: 370px;
+height: 500px;
+z-index: 1;
+position: relative;
+
+background: #FFFFFF;
+border-radius: 30px;
+}
+.regform 
+{
+    padding-top: 5%;
+    padding-left: 38.5%;
+    position: relative;
+    outline: none;
+}
+.reg 
+{
+    position: absolute;
+    top: 0;
+    padding-top: 8%;
+    padding-left: 6%;
+    z-index: 2;
+    
+}
+
+.reg1
+{
+    margin-bottom: 15px;
+}
+#login
+{
+    margin-bottom: 15px;
+}
+#pass
+{
+    margin-bottom: 15px;
+}
