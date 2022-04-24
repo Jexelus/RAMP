@@ -11,22 +11,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $confirm_password = trim($_POST["confirm_password"]);
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    if($query = $db->prepare("SELECT * FROM users WHERE email = ?")) {
+    if($query = $dbh->prepare("SELECT * FROM users WHERE email = :email")) {
         $error = '';
-    // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-	$query->bind_param('s', $email);
+
+	$query->bindParam(':email', $email, PDO::PARAM_STR);
 	$query->execute();
-	// Store the result so we can check if the account exists in the database.
-	$query->store_result();
-        if ($query->num_rows > 0) {
+
+        if ($query->rowCount() > 0) {
             $error .= '<p class="error">The email address is already registered!</p>';
         } else {
-            // Validate password
+            
             if (strlen($password ) < 6) {
                 $error .= '<p class="error">Password must have atleast 6 characters.</p>';
             }
 
-            // Validate confirm password
+            
             if (empty($confirm_password)) {
                 $error .= '<p class="error">Please enter confirm password.</p>';
             } else {
@@ -35,9 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 }
             }
             if (empty($error) ) {
-                $insertQuery = $db->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?);");
-                $insertQuery->bind_param("sss", $fullname, $email, $password);
-                $result = $insertQuery->execute();
+                $insertQuery = $dbh->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?);");
+                $result = $insertQuery->execute([$fullname, $email, $password]);
                 if ($result) {
                     $error .= '<p class="success">Your registration was successful!</p>';
                 } else {
@@ -46,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             }
         }
     }
-    mysqli_close($db);
-    header('Location: http://localhost/index.html');
+    header('Location: loginhtml.php');
+    
 }
 ?>

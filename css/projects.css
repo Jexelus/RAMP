@@ -54,27 +54,7 @@ body
 {
     color: #FFFFFF;
 }
-.aboutme
-{
-    font-size: 22px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-top: 8%;
-    margin-left: 37%;
-}
-.afdb
-{
-    position: absolute;
-    font-size: 18px;
-    top: 0;
-    left: 0;
-    margin-top: 12%;
-    margin-left: 15%;
-    width: 740px;
-    height: 400px;
-    word-wrap: break-word;
-}
+
 #spf 
 {   
     position: absolute;
@@ -171,4 +151,64 @@ a:active
     margin-top: 41%;
     width: 220px;
     text-align: center;
+}
+.fillform
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 600px;
+    width: 600px;
+    margin-left: 20%;
+    margin-top: 10%;
+    display: flexbox;
+    color: azure;
+}
+.formg 
+{
+    margin-bottom: 5%;
+}
+  
+  .text-field__label 
+{
+    display: inline-flexbox;
+    margin-bottom: 0.25rem;
+}
+  .form-control
+{
+    display: inline-flexbox;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 1%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 10px;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+#adm
+{
+ height: 150px;
+ line-height: 24px;
+ color: black;
+}
+.p1 
+{
+    padding-left: 25%;
+    font-size: 18px;
+}
+.save
+{
+    margin-left: 30%;
+}
+#sub
+{
+    margin-left: 30%;
+    padding: 0;
+    border: none;   
+    background: none;
 }

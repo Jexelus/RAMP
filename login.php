@@ -20,17 +20,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     }
 
     if (empty($error)) {
-        if($query = $db->prepare("SELECT * FROM users WHERE email = ?")) {
-            $query->bind_param('s', $email);
+        if($query = $dbh->prepare("SELECT * FROM users WHERE email = :email")) {
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
             $query->execute();
             $row = $query->fetch();
+            var_dump($row);
             if ($row) {
-                if (password_verify($password, $row['password'])) {
+                if($password === $row['password'])
+                { // ПОРОЛИ НЕ ХЕШИРОВАЛИ!   
                     $_SESSION["userid"] = $row['id'];
                     $_SESSION["user"] = $row;
 
                     // Redirect the user to welcome page
-                    header("location: index.html");
+                    header("location: profile.php");
                     exit;
                 } else {
                     $error .= '<p class="error">The password is not valid.</p>';
@@ -39,8 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 $error .= '<p class="error">No User exist with that email address.</p>';
             }
         }
-        $query->close();
+        
     }
-    // Close connection
-    mysqli_close($db);
 }

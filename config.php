@@ -3,12 +3,13 @@ define('DBSERVER', 'localhost'); // Database server
 define('DBUSERNAME', 'root'); // Database username
 define('DBPASSWORD', ''); // Database password
 define('DBNAME', 'regramp'); // Database name
-file_put_contents('D:\logs.txt', print_r('123', true));
+
 /* connect to MySQL database */
-$db = mysqli_connect(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);
+$dbh = new PDO('mysql:host=localhost;dbname=regramp', DBUSERNAME, DBPASSWORD);
+
  
-file_put_contents('D:\logs.txt', print_r($db, true));
-if($db === false){
+
+if($dbh === false){
     die("Error: connection error. " . mysqli_connect_error());
 }
 ?>

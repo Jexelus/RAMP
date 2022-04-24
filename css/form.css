@@ -1,7 +1,7 @@
 body 
 {
     margin:0;
-    padding:0
+    padding:0;
 }
 .upper 
 {
@@ -19,4 +19,77 @@ body
 {
     padding-top: 10px;
     padding-left: 10%;
+}
+#rectform 
+{
+    position: relative;
+    width: 870px;
+    height: 850px;
+    
+    background: black;
+    filter: blur(6px);
+    border-radius: 30px;
+    opacity: 65%;
+    margin-top: 2%;
+    margin-left: 22%;
+}
+.fillform
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 640px;
+    width: 600px;
+    margin-left: 30%;
+    margin-top: 7%;
+    display: flexbox;
+    color: azure;
+}
+.formg 
+{
+    margin-bottom: 5%;
+}
+  
+  .text-field__label 
+{
+    display: inline-flexbox;
+    margin-bottom: 0.25rem;
+}
+  .form-control
+{
+    display: inline-flexbox;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 1%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 10px;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+#adm
+{
+ height: 150px;
+ line-height: 24px;
+ color: black;
+}
+.p1 
+{
+    padding-left: 25%;
+    font-size: 18px;
+}
+.save
+{
+    margin-left: 30%;
+}
+#sub
+{
+    margin-left: 30%;
+    padding: 0;
+    border: none;
+    background: none;
 }
