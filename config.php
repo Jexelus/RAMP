@@ -1,7 +1,7 @@
 <?php
 define('DBSERVER', 'localhost'); // Database server
 define('DBUSERNAME', 'root'); // Database username
-define('DBPASSWORD', ''); // Database password
+define('DBPASSWORD', 'root'); // Database password
 define('DBNAME', 'regramp'); // Database name
 file_put_contents('D:\logs.txt', print_r('123', true));
 /* connect to MySQL database */
