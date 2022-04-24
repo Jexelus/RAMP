@@ -3,6 +3,7 @@
 require_once "config.php";
 require_once "session.php";
 
+
 $error = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                     $_SESSION["user"] = $row;
 
                     // Redirect the user to welcome page
-                    header("location: index.html");
+                    header("location: welcome.php");
                     exit;
                 } else {
                     $error .= '<p class="error">The password is not valid.</p>';

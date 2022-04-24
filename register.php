@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
     if($query = $db->prepare("SELECT * FROM users WHERE email = ?")) {
         $error = '';
-    // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
+        // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
 	$query->bind_param('s', $email);
 	$query->execute();
 	// Store the result so we can check if the account exists in the database.
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             }
             if (empty($error) ) {
                 $insertQuery = $db->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?);");
-                $insertQuery->bind_param("sss", $fullname, $email, $password);
+                $insertQuery->bind_param("sss", $fullname, $email, $password_hash);
                 $result = $insertQuery->execute();
                 if ($result) {
                     $error .= '<p class="success">Your registration was successful!</p>';
@@ -46,7 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
             }
         }
     }
+    $query->close();
+    $insertQuery->close();
+    // Close DB connection
     mysqli_close($db);
-    header('Location: http://localhost/index.html');
 }
 ?>
